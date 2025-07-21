@@ -4,11 +4,13 @@
     <item android:id="@+id/notes"
         android:title="Notes"
         android:icon="@drawable/outline_contract_24"
-
+        android:iconTint="@color/darkpurple"
         />
     <item android:id="@+id/Profile"
         android:title="Profile"
         android:icon="@drawable/profile_circle_svgrepo_com"
+        android:iconTint="@color/darkpurple"
+        
         />
 
 </menu>

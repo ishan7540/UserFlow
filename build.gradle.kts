@@ -2,6 +2,10 @@
 buildscript {
     repositories {
         google()
+        mavenCentral()
+        maven {
+            url = uri("https://dl.google.com/maven2/")
+        }
     }
     dependencies {
         val nav_version = "2.9.2"

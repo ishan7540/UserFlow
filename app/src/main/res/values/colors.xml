@@ -10,7 +10,10 @@
     <color name="yellow">#F59F0B</color>
     <color name="red">#EE4443</color>
     <color name="lightgreen">#EBF5ED</color>
-    <color name="lightgrey">#EBEBFB</color>
+    <color name="lightgrey">#F5F6F9</color>
+    <color name="darkpurple">#574DE5</color>
+    <color name= "lightpurple">#6F5DE8</color>
+    <color name="lightestpurple">#EDEDFF</color>
 
 
 

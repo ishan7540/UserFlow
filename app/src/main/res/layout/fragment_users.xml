@@ -139,7 +139,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/edit"
                     app:layout_constraintHorizontal_bias="0.05"
                     android:src="@drawable/outline_edit_square_24"
-                    app:tint="@color/darkblue"
+                    app:tint="@color/darkpurple"
 
                     />
                 <ImageView
@@ -151,7 +151,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/settings"
                     app:layout_constraintHorizontal_bias="0.05"
                     android:src="@drawable/settings_svgrepo_com"
-                    app:tint="@color/darkblue"
+                    app:tint="@color/darkpurple"
 
                     />
 
@@ -218,9 +218,10 @@
                     android:layout_width="44dp"
                     android:layout_height="51dp"
                     android:text="12"
-                    android:textColor="@color/darkblue"
+                    android:textColor="@color/darkpurple"
                     android:textSize="36sp"
                     android:textStyle="bold"
+
                     app:layout_constraintBottom_toTopOf="@id/stat_total_notes_heading"
                     app:layout_constraintEnd_toEndOf="@id/total_notes"
                     app:layout_constraintHorizontal_bias="0.51"
@@ -248,7 +249,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="24"
-                    android:textColor="@color/darkblue"
+                    android:textColor="@color/darkpurple"
                     android:textSize="36sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/total_chats"
