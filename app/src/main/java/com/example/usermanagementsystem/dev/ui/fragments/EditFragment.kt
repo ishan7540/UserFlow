@@ -42,7 +42,9 @@ class EditFragment : Fragment() {
                     id = currentNote.id,
                     noteTitle = updatedTitle,
                     noteDesc = updatedDesc,
-                            timestamp = currentNote.timestamp
+                    timestamp = currentNote.timestamp,
+                    email = currentNote.email,
+                    userName = currentNote.userName
                 )
                 noteViewModel.update(updatedNote)
                 Toast.makeText(requireContext(), "Note Updated", Toast.LENGTH_SHORT).show()

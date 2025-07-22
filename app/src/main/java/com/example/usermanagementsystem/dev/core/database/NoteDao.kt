@@ -1,27 +1,32 @@
-package com.example.mynotes.database
-
+package com.example.usermanagementsystem.dev.core.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.usermanagementsystem.dev.core.models.Note
-
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NoteDao {
-    @Insert (onConflict = OnConflictStrategy.REPLACE)
-    suspend fun onInsert(note: Note)
-    @Delete
-    suspend fun onDelete(note:Note)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(note: Note)
+
     @Update
-    suspend fun onUpdate(note: Note)
-    @Query ("SELECT * FROM notes ORDER BY id DESC")
-    fun onGetAllNotes(): LiveData<List<Note>>
-    @Query("SELECT * FROM notes WHERE noteTitle LIKE:query OR noteDesc LIKE:query")
-    fun onSearchNote(query:String?) : LiveData<List<Note>>
+    suspend fun update(note: Note)
+
+    @Delete
+    suspend fun delete(note: Note)
+
+    @Query("SELECT * FROM notes ORDER BY id DESC")
+    fun getAllNotes(): LiveData<List<Note>>
+
+    @Query("SELECT * FROM notes")
+    suspend fun getAllNotesOnce(): List<Note>
+
+    @Query("SELECT * FROM notes WHERE email = :email")
+    fun getNotesByEmail(email: String): Flow<List<Note>>
+
+    @Query("SELECT * FROM notes WHERE email = :email")
+    suspend fun getNotesByEmailOnce(email: String): List<Note>
+
 
 }

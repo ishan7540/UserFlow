@@ -38,6 +38,7 @@
             android:textSize="24sp" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintTop_toBottomOf="@id/appbar"
@@ -50,21 +51,33 @@
             />
         <EditText
             android:id="@+id/question"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/crylindrical_bg"
             android:gravity="top"
             android:hint="Ask your question"
             android:layout_marginBottom="20dp"
-            android:drawableEnd="@drawable/outline_arrow_forward_24"
+            android:maxHeight="100dp"
             android:padding="12dp"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@id/editNoteHeading"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/editNoteHeading"
+            app:layout_constraintEnd_toStartOf="@id/send"
             app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:id="@+id/send"
+            android:layout_width="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toEndOf="@id/question"
+            app:layout_constraintTop_toTopOf="@id/question"
+            app:layout_constraintBottom_toBottomOf="@id/question"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/outline_arrow_forward_24"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

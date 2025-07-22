@@ -12,6 +12,8 @@ data class Note(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val noteTitle: String,
     val noteDesc: String,
-    val timestamp: Long = System.currentTimeMillis()
+    val timestamp: Long = System.currentTimeMillis(),
+    val userName: String,
+    val email: String
 ) : Parcelable
 

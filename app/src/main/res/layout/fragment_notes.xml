@@ -37,6 +37,16 @@
             android:textStyle="bold"
 
              />
+        <ImageView
+            android:id="@+id/chatbot"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintEnd_toEndOf="@id/appbar"
+            app:layout_constraintTop_toTopOf="@id/appbar"
+            app:layout_constraintBottom_toBottomOf="@id/appbar"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/chatbot_svgrepo_com"
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="15dp"
             android:id="@+id/recyclerview"

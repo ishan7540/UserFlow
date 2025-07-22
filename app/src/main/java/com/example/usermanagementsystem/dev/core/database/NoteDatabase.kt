@@ -4,12 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.mynotes.database.NoteDao
 import com.example.usermanagementsystem.dev.core.models.Note
+import com.example.usermanagementsystem.dev.core.models.User
 
-@Database(entities = [Note::class], version = 2, exportSchema = false)
+@Database(entities = [Note::class, User::class], version = 2) // ⬅️ Bumped version to 2
 abstract class NoteDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
+    abstract fun userDao(): UserDao
 
     companion object {
         @Volatile

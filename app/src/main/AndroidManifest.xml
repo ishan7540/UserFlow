@@ -15,10 +15,14 @@
         android:theme="@style/Theme.UserManagementSystem">
         <activity
             android:name=".dev.ui.ChatBotActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity
             android:name=".dev.ui.HomeScreen"
             android:exported="false" />
+        <activity android:name=".dev.ui.SignUpActivity"
+            android:exported="false"/>
         <activity
             android:name=".dev.ui.MainActivity"
             android:exported="true"
