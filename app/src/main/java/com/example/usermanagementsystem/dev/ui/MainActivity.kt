@@ -2,6 +2,7 @@ package com.example.usermanagementsystem.dev.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,8 +14,7 @@ import com.example.usermanagementsystem.databinding.ActivityMainBinding
 import com.example.usermanagementsystem.dev.core.viewmodel.AuthViewModel
 import com.example.usermanagementsystem.dev.core.viewmodel.NoteViewModel
 import com.example.usermanagementsystem.dev.core.viewmodel.NoteViewModelFactory
-import com.example.usermanagementsystem.dev.core.repository.NoteRepository
-import com.example.usermanagementsystem.dev.core.database.NoteDatabase
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,14 +33,28 @@ class MainActivity : AppCompatActivity() {
 
         noteViewModel = ViewModelProvider(
             this,
-            NoteViewModelFactory(application)
-        )[NoteViewModel::class.java]
+            NoteViewModelFactory(application) )[NoteViewModel::class.java]
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(0, systemBars.top, 0, 0)
             insets
         }
+
+
+        binding.showPassword.setOnClickListener {
+            val isVisible = binding.etPassword.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            if (isVisible) {
+                binding.etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                //binding.showPassword.setImageResource(R.drawable.eye_slash_visibility_visible_hide_hidden_show_watch_svgrepo_com)
+
+            } else {
+                binding.etPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+
+            }
+            binding.etPassword.setSelection(binding.etPassword.text.length)
+        }
+
 
         binding.btnSubmit.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
@@ -52,7 +66,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
 
-        // This works now
+
+
         authViewModel.authUser.observe(this) { user ->
             if (user != null) {
                 noteViewModel.setSession(user.email, user.name)
@@ -67,5 +82,7 @@ class MainActivity : AppCompatActivity() {
                 "Account does not exist" -> Toast.makeText(this, "Account doesn't exist", Toast.LENGTH_SHORT).show()
             }
         }
+
+
     }
 }

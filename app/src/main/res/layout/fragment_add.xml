@@ -51,6 +51,7 @@
         <EditText
             android:id="@+id/addNoteTitle"
             android:layout_width="match_parent"
+            android:backgroundTint="@color/white"
             android:layout_height="60dp"
             android:hint="Enter the title"
             android:padding="12dp"
@@ -75,6 +76,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="12dp"
             android:gravity="top"
+            android:backgroundTint="@color/white"
             android:hint="Enter the description"
             android:padding="12dp"
             android:background="@drawable/crylindrical_bg"

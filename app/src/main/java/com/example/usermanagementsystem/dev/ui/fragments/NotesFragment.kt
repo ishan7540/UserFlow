@@ -16,8 +16,8 @@ import com.example.usermanagementsystem.dev.ui.adapters.NoteAdapter
 
 class NotesFragment : Fragment() {
 
-    private var _binding: FragmentNotesBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentNotesBinding
+
 
     private val viewModel: NoteViewModel by activityViewModels()
     private lateinit var adapter: NoteAdapter
@@ -26,7 +26,7 @@ class NotesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentNotesBinding.inflate(inflater, container, false)
+        binding = FragmentNotesBinding.inflate(inflater, container, false)
 
         setupRecyclerView()
         setupListeners()
@@ -65,10 +65,5 @@ class NotesFragment : Fragment() {
             val intent = Intent(requireContext(), ChatBotActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

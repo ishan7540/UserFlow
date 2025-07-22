@@ -85,16 +85,14 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private suspend fun initChat() {
-        try {
+
             chat = generativeModel.startChat(
                 history = listOf(
                     content(role = "user") { text("My name is ${getSessionName() ?: "User"}.") },
                     content(role = "model") { text("Great to meet you. What would you like to know?") }
                 )
             )
-        } catch (e: Exception) {
-            Log.e("NoteViewModel", "Chat initialization failed: ${e.message}")
-        }
+
     }
 
     fun sendMessage(message: String) {
@@ -102,7 +100,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
             val updatedList = _chatMessages.value.orEmpty() + ChatMessage(message, 1)
             _chatMessages.postValue(updatedList.sortedBy { it.timestamp })
 
-            try {
+
                 val email = getSessionEmail()
                 val notesList = email?.let { repository.getNotesByEmailOnce(it) } ?: emptyList()
                 val notesContext = if (notesList.isNotEmpty()) {
@@ -113,7 +111,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
                         }
                     }
                 } else {
-                    "The user has no saved notes."
+                    " no notes created yet "
                 }
 
                 val prompt = "$notesContext\n\nUser's Question: $message"
@@ -123,9 +121,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
                     val finalList = _chatMessages.value.orEmpty() + ChatMessage(it, 0)
                     _chatMessages.postValue(finalList.sortedBy { it.timestamp })
                 }
-            } catch (e: Exception) {
-                Log.e("NoteViewModel", "Error sending message: ${e.message}")
             }
         }
-    }
 }

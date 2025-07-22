@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.usermanagementsystem.dev.core.models.Note
 import com.example.usermanagementsystem.dev.core.models.User
 
-@Database(entities = [Note::class, User::class], version = 2) // ⬅️ Bumped version to 2
+@Database(entities = [Note::class, User::class], version = 2)
 abstract class NoteDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
     abstract fun userDao(): UserDao
