@@ -29,7 +29,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     private val generativeModel = GenerativeModel(
         modelName = "gemini-2.5-flash",
-        apiKey = "AIzaSyDmuYp5VIEhHYub8NqJjy-WQcM4XJFmBkc"
+        apiKey = "API_KEY"
     )
 
     init {
